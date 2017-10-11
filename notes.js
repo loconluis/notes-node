@@ -16,7 +16,7 @@ let fetchNotes = () => {
 
 let saveNotes = (notes) => {
   fs.writeFileSync('notes-data.json', JSON.stringify(notes))
-  console.log('saving note!')
+  console.log('saving data!')
 }
 
 // Adding note function
@@ -44,7 +44,11 @@ let listNotes = () => {
 
 // Remove a single note function
 let removeNote = (title) => {
-  console.log(`Removing note with title ${title}!`)
+  let notes = fetchNotes()
+  let arr = notes.filter(note => note.title !== title)
+  saveNotes(arr)
+  // Return a bool if was remove it or not!
+  return notes.length !== arr.length
 }
 
 // Read a single note function
