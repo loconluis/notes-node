@@ -15,7 +15,12 @@ console.log('Command: ', command)
 
 if (command === 'add') {
   // Add a new note
-  notes.addNote(argv.title, argv.body)
+  let note = notes.addNote(argv.title, argv.body)
+  if (!note) {
+    console.log('A note with the same title exists! Try with other title')
+  } else {
+    console.log(`A new note was create with\n--\ntitle: ${note.title}\nbody: ${note.body}`)
+  }
 } else if (command === 'list') {
   // List the notes
   notes.listNotes()
