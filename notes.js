@@ -53,7 +53,9 @@ let removeNote = (title) => {
 
 // Read a single note function
 let readNote = (title) => {
-  console.log(`Reading ${title} note`)
+  const notes = fetchNotes()
+  const singleNote = notes.filter(note => note.title === title)
+  return singleNote[0]
 }
 module.exports = {
   addNote,

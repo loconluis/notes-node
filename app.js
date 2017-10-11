@@ -19,14 +19,21 @@ if (command === 'add') {
   if (!note) {
     console.log('A note with the same title exists! Try with other title')
   } else {
-    console.log(`A new note was create with\n--\ntitle: ${note.title}\nbody: ${note.body}`)
+    console.log('Creating note...')
+    printNote(note.title, note.body)
   }
 } else if (command === 'list') {
   // List the notes
   notes.listNotes()
 } else if (command === 'read') {
   // Read a single note
-  notes.readNote(argv.title)
+  const singleNote = notes.readNote(argv.title)
+  if (singleNote) {
+    console.log('Reading note...')
+    printNote(singleNote.title, singleNote.body)
+  } else {
+    console.log(`Note not found. Try again!`)
+  }
 } else if (command === 'remove') {
   // Remove a single note
   let removeNote = notes.removeNote(argv.title)
@@ -35,4 +42,8 @@ if (command === 'add') {
 } else {
   // Not matching command
   console.log('Not recognized!')
+}
+
+function printNote (title, body) {
+  console.log(`--\ntitle: ${title}\nbody: ${body}`)
 }
