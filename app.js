@@ -1,4 +1,5 @@
 console.log('Start app.js!!!')
+/* eslint-disable no-debugger */
 
 const _ = require('lodash')
 const yargs = require('yargs')
@@ -44,5 +45,6 @@ if (command === 'add') {
 }
 
 function printNote (title, body) {
+  debugger
   console.log(`--\ntitle: ${title}\nbody: ${body}`)
 }

@@ -1,0 +1,12 @@
+Si usas node v6.xxx
+en Consola puedes usar 
+`node debug app.js`
+para leer variables
+entra al modo
+repl
+
+y
+usa debugger to make a breakpoint
+
+para entrar a Chrome DevTool
+--inspect --debug-brk
