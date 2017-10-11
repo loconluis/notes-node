@@ -4,12 +4,18 @@
   "description": "Notes app with node!",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard"
   },
   "git repository": "https://github.com/loconluis/notes-node",
   "author": "loconluis <https://twitter.com/LoconLuis>",
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1",
+    "standard": "^10.0.3"
   }
 }

@@ -5,14 +5,6 @@ let addNote = () => {
   return 'New Note'
 }
 
-function add(a, b) {
-  return a + b
-}
-
 module.exports = {
-  addNote,
-  add
+  addNote
 }
-
-
-
