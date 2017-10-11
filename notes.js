@@ -39,7 +39,7 @@ let addNote = (title, body) => {
 
 // List notes function
 let listNotes = () => {
-  console.log('Take a look for this notes \n >allnotes object here<')
+  return fetchNotes()
 }
 
 // Remove a single note function
@@ -57,9 +57,14 @@ let readNote = (title) => {
   const singleNote = notes.filter(note => note.title === title)
   return singleNote[0]
 }
+
+function printNote (note) {
+  console.log(`--\ntitle: ${note.title}\nbody: ${note.body}`)
+}
 module.exports = {
   addNote,
   listNotes,
   removeNote,
-  readNote
+  readNote,
+  printNote
 }

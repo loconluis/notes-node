@@ -1,7 +1,14 @@
-console.log('Start app.js!!!')
-/* eslint-disable no-debugger */
+/*
+@argv= Use yargs package to get structure args from terminal
+@command= Receives input from terminal
+function addNote(@title, @body) Add a new note to array
+function listNotes() List all notes
+function removeNote(@title) Remove a note from array
+function readNote(@title) Search of array for a note a return
+*/
 
-const _ = require('lodash')
+/* eslint-disable no-debugger */
+// const _ = require('lodash')
 const yargs = require('yargs')
 
 const notes = require('./notes')
@@ -9,42 +16,31 @@ const notes = require('./notes')
 const argv = yargs.argv
 
 let command = argv._[0]
-console.log('Command: ', command)
-// console.log('Process: \n', process.argv)
-// console.log('Yargs: \n', argv)
 
 if (command === 'add') {
-  // Add a new note
   let note = notes.addNote(argv.title, argv.body)
   if (!note) {
     console.log('A note with the same title exists! Try with other title')
   } else {
     console.log('Creating note...')
-    printNote(note.title, note.body)
+    notes.printNote(note)
   }
 } else if (command === 'list') {
-  // List the notes
-  notes.listNotes()
+  const fetchNote = notes.listNotes()
+  console.log(`Listing ${fetchNote.length} note(s).`)
+  fetchNote.forEach(note => notes.printNote(note))
 } else if (command === 'read') {
-  // Read a single note
   const singleNote = notes.readNote(argv.title)
   if (singleNote) {
     console.log('Reading note...')
-    printNote(singleNote.title, singleNote.body)
+    notes.printNote(singleNote)
   } else {
     console.log(`Note not found. Try again!`)
   }
 } else if (command === 'remove') {
-  // Remove a single note
   let removeNote = notes.removeNote(argv.title)
   let message = removeNote ? 'Note was removed' : 'Note not found. Try again!'
   console.log(message)
 } else {
-  // Not matching command
   console.log('Not recognized!')
-}
-
-function printNote (title, body) {
-  debugger
-  console.log(`--\ntitle: ${title}\nbody: ${body}`)
 }
