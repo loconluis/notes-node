@@ -30,8 +30,8 @@ Argumentos que puede recibir un comando
 
 | Argumentos | Función |
 | ------ | ------ |
-| --title |  Titulo de la nota |
-| --body |  Cuerpo de la nota |
+| --title <-t> |  Titulo de la nota |
+| --body <-b> |  Cuerpo de la nota |
 
 
 Code with ♥ by [LoconLuis](https://twitter.com/loconluis)
