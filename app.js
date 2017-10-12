@@ -1,19 +1,38 @@
-/*
-@argv= Use yargs package to get structure args from terminal
-@command= Receives input from terminal
-function addNote(@title, @body) Add a new note to array
-function listNotes() List all notes
-function removeNote(@title) Remove a note from array
-function readNote(@title) Search of array for a note a return
-*/
-
 /* eslint-disable no-debugger */
 // const _ = require('lodash')
 const yargs = require('yargs')
 
 const notes = require('./notes')
 
-const argv = yargs.argv
+const argv = yargs.command('add', 'Add a new note', {
+  title: {
+    describe: 'Title of a note',
+    demand: true,
+    alias: 't'
+  },
+  body: {
+    describe: 'Body of a note',
+    demand: true,
+    alias: 'b'
+  }
+})
+.command('list', 'List all notes')
+.command('read', 'read a note', {
+  title: {
+    describe: 'Title of a note to read',
+    demand: true,
+    alias: 't'
+  }
+})
+.command('remove', 'Remove a note', {
+  title: {
+    describe: 'Title of a note to remove',
+    demand: true,
+    alias: 't'
+  }
+})
+.help()
+.argv
 
 let command = argv._[0]
 
