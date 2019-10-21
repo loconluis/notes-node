@@ -12,7 +12,7 @@
   "author": "loconluis <https://twitter.com/LoconLuis>",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.13",
     "yargs": "^9.0.1"
   },
   "devDependencies": {
